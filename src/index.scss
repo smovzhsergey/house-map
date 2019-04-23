@@ -13,9 +13,18 @@ code {
 		monospace;
 }
 
-.wall {
+.page {
 	margin: 0 auto;
-	width: 1000px;
+	width: 80%;
+}
+
+.wall {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	margin: 0 auto;
+	width: 100%;
+
 }
 
 .card {
@@ -23,13 +32,16 @@ code {
 	box-shadow: 1px 1px 30px rgba(125,125,125,0.8);
 	margin: 40px auto;
 	padding: 10px;
-	width: 400px;
+	flex-basis: 40%;
+	min-width: 340px;
 
 	.imageCont {
 		position: relative;
+		overflow: hidden;
 
 		img{
 			width: 100%;
+			height: 250px;  //
 		}
 
 		p {

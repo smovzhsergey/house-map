@@ -87,13 +87,15 @@ class Wall extends Component {
         const itemList = data.map( el => this.createCard(currentView, el));
         
         return (
-            <section className = 'wall'>
+            <section className = 'page'>
                 <Controls
                     current = { currentView }
                     schema = { schema }
                     selectView = { changeTypeOfView } 
                 />
-                { data.length !== 0 && itemList }
+                <section className = 'wall'>
+                    { data.length !== 0 && itemList }
+                </section>
             </section>
         );
     }
