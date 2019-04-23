@@ -22,6 +22,7 @@ code {
 	border-bottom: 6px solid #33cc33;
 	box-shadow: 1px 1px 30px rgba(125,125,125,0.8);
 	margin: 40px auto;
+	padding: 10px;
 	width: 400px;
 
 	.imageCont {
@@ -47,7 +48,6 @@ code {
 		padding: 0 15px;
 
 		&.address {
-			padding-top: 10px;
 			color: navy;
 			font-size: 1.25rem;
 		}

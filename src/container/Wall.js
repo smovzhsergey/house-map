@@ -9,6 +9,7 @@ import Area from './../components/Area';
 import Image from './../components/Image';
 import Price from './../components/Price';
 import Controls from './../components/Controls';
+import Card from './../components/Card';
 
 class Wall extends Component {
     
@@ -70,13 +71,13 @@ class Wall extends Component {
             const template = schema.filter( templateItem => templateItem.id === schemaID)[0].template;
 
             return (
-                <article key = { currentElement.id } className = 'card'>
+                <Card key = { currentElement.id } className = 'card'>
                     { 
                         template.map( item => 
                             this._returnComponent(item, currentElement)
                         )
                     }    
-                </article>
+                </Card>
             )
         }
     }
