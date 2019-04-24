@@ -12,12 +12,6 @@ import Controls from './../components/Controls';
 import Card from './../components/Card';
 
 class Wall extends Component {
-    
-    constructor(props) {
-        super(props);
-
-        this.createCard = this._createCard.bind(this);
-    }
 
     static propTypes = {
         actions:        objectOf(func).isRequired,
@@ -63,12 +57,12 @@ class Wall extends Component {
         }
     }
 
-    _createCard (schemaID, currentElement) {
+    _createCard = (schemaID, currentElement) => {
         const { data, schema } = this.props;
         
         if (schema.length && data.length){
 
-            const template = schema.filter( templateItem => templateItem.id === schemaID)[0].template;
+            const template = schema.filter( ({ id }) => id === schemaID)[0].template;
 
             return (
                 <Card key = { currentElement.id } className = 'card'>
@@ -84,7 +78,7 @@ class Wall extends Component {
 
     render() {
         const { currentView, data, schema, actions: { changeTypeOfView } } = this.props;
-        const itemList = data.map( el => this.createCard(currentView, el));
+        const itemList = data.map( el => this._createCard(currentView, el));
         
         return (
             <section className = 'page'>
@@ -101,13 +95,14 @@ class Wall extends Component {
     }
 }
 
-export default connect(
-    ( state ) => ({
-        data:           state.data,
-        schema:         state.schema,
-        currentView:    state.currentView
-    }),
-    ( dispatch ) => ({
-        actions: bindActionCreators({...actions}, dispatch)
-    })
-)(Wall) ;
+const mapStateToProps = ({ currentView, data, schema }) => ({
+    data:           data,
+    schema:         schema,
+    currentView:    currentView
+});
+
+const mapDispatchToProps = ( dispatch ) => ({
+    actions: bindActionCreators({...actions}, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wall) ;

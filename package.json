@@ -27,7 +27,6 @@
     "not dead",
     "not ie <= 9",
     "not op_mini all"
-  ],
-  "proxy": "http://demo4452328.mockable.io/"
+  ]
 }
 
